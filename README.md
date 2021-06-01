@@ -1,4 +1,6 @@
-# APARTMENT HOUSING PROJECT
+APARTMENT HOUSING PROJECT
+
+![Kiji Housing Apartment](/assets/apartment.JPG "apartment")
 
 ## Build Setup
 
