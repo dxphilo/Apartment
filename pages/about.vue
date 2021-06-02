@@ -12,6 +12,6 @@ export default {};
 <style scoped>
 .about {
   background-image: linear-gradient(rgba(0, 0, 0, 0.514), rgba(0, 0, 0, 0.514)),
-    url("../assets/2.jpg");
+    url("../assets/2.webp");
 }
 </style>

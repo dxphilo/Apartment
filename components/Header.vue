@@ -6,8 +6,10 @@
       <div class="pt-4">
         <a href="/">
           <img
-            src="../assets/2.jpg"
+            src="../assets/2.webp"
             class="h-10 w-10 rounded-full"
+            height="10"
+            width="10"
             alt="Kijiji housing"
             srcset=""
         /></a>

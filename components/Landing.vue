@@ -12,7 +12,7 @@ export default {};
 </script>
 <style scoped>
 .landing {
-  background-image: url("../assets/2.jpg");
+  background-image: url("../assets/2.webp");
   height: 550px;
 }
 </style>
