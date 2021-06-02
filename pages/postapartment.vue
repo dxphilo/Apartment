@@ -114,6 +114,6 @@ export default {
 </script>
 <style scoped>
 .postapartment {
-  background-image: url("../assets/1.jpg");
+  background-image: url("../assets/2.jpg");
 }
 </style>

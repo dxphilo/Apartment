@@ -11,7 +11,7 @@ export default {};
 </script>
 <style scoped>
 .about {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url("../assets/1.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.514), rgba(0, 0, 0, 0.514)),
+    url("../assets/2.jpg");
 }
 </style>
