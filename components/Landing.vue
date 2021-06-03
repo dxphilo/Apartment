@@ -12,7 +12,8 @@ export default {};
 </script>
 <style scoped>
 .landing {
-  background-image: url("../assets/2.webp");
+  background-image: url("../assets/2.webp"),
+    linear-gradient(rgba(0, 0, 0, 0.514), rgba(0, 0, 0, 0.514));
   height: 550px;
 }
 </style>

@@ -28,10 +28,13 @@
       <br />
       <label for="Name" class="text-xl">Telephone No:</label> <br />
       <input
-        type="number"
+        type="tel"
         class="py-2 px-12 outline-none shadow-lg rounded-sm"
-        placeholder="Enter number"
-        v-model="telno"
+        id="phone"
+        name="phone"
+        placeholder="Enter Tel no"
+        pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+        v-model="phone"
       />
       <br />
 
@@ -94,6 +97,13 @@
   </div>
 </template>
  <script>
+import { upload } from "../backend/routes/fileupload";
+
+const statusInitial = 0,
+  statusSaving = 1,
+  statusSuccess = 2,
+  statusFailed = 3;
+
 export default {
   data() {
     return {
@@ -105,10 +115,62 @@ export default {
       price: "",
       size: "",
       images: "",
+      currentStatus: null,
+      uploadedFiles: [],
+      uploadError: null,
+      uploadFieldName: "photos",
     };
   },
+  computed: {
+    isInitial() {
+      return this.currentStatus === statusInitial;
+    },
+    isSaving() {
+      return this.currentStatus === statusSaving;
+    },
+    isSuccess() {
+      return this.currentStatus === statusSuccess;
+    },
+    isFailed() {
+      return this.currentStatus === statusFailed;
+    },
+  },
   methods: {
-    postDetails() {},
+    // reset the form to initial state
+    reset() {
+      this.currentStatus = statusInitial;
+      this.uploadedFiles = [];
+      this.uploadError = null;
+    },
+    // save theimage to the server
+    saveImage(formData) {
+      this.currentStatus = statusSaving;
+      upload(formData)
+        .then((img) => {
+          this.uploadedFiles = [].concat(img);
+          this.currentStatus = statusSuccess;
+        })
+        .catch((err) => {
+          this.uploadError = err.response;
+          this.currentStatus = statusFailed;
+        });
+    },
+
+    // handle file changes
+    fileChange(fieldName, fileList) {
+      const formData = new FormData();
+      if (!fileList.length) return;
+      // append the files to FormData
+
+      Array.from(Array(fileList.length).keys()).map((img) => {
+        formData.append(fieldName, fileList[img], fileList[img].name);
+      });
+      // save the image files data
+      this.save(formData);
+    },
+  },
+  mounted() {
+    this.reset();
   },
 };
 </script>
